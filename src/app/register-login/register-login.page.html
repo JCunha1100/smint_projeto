@@ -1,0 +1,28 @@
+<ion-content [fullscreen]="true" class="register-login-content">
+  <div class="container">
+    <!-- Logo e Título -->
+    <div class="logo-section">
+      <ion-icon name="trophy" class="app-icon"></ion-icon>
+      <h1 class="app-title">Quests</h1>
+      <p class="app-subtitle">Que o jogo comece</p>
+    </div>
+
+    <!-- Botões de ação -->
+    <div class="actions-section">
+      <ion-button expand="block" class="login-button" (click)="goToLogin()">
+        <ion-icon slot="start" name="log-in-outline"></ion-icon>
+        Entrar
+      </ion-button>
+
+      <ion-button expand="block" fill="outline" class="register-button" (click)="goToRegister()">
+        <ion-icon slot="start" name="person-add-outline"></ion-icon>
+        Criar Conta
+      </ion-button>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p class="footer-text">Transforme suas tarefas em conquistas</p>
+    </div>
+  </div>
+</ion-content>
