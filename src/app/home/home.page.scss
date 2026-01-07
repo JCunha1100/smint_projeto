@@ -1,0 +1,74 @@
+.home-content {
+  --background: #FFF1D0;
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  padding: 20px;
+}
+
+.welcome-section {
+  text-align: center;
+  
+  .welcome-icon {
+    font-size: 80px;
+    color: #33658A;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+  }
+
+  p {
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+  }
+}
+
+.custom-tab-bar {
+  --background: #ffffff;
+  border-top: 1px solid #e0e0e0;
+  height: 60px;
+  padding-bottom: 5px;
+
+  ion-tab-button {
+    --color: #999;
+    --color-selected: #33658A;
+    font-size: 12px;
+
+    ion-icon {
+      font-size: 24px;
+      margin-bottom: 4px;
+    }
+
+    ion-label {
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    &.tab-selected {
+      ion-icon, ion-label {
+        color: #33658A;
+      }
+    }
+  }
+
+  .add-button {
+    ion-icon {
+      font-size: 32px;
+      color: #F0C808;
+    }
+
+    &.tab-selected ion-icon {
+      color: #F0C808;
+    }
+  }
+}

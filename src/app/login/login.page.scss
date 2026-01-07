@@ -1,5 +1,5 @@
 .login-content {
-  --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --background: linear-gradient(135deg, #33658A 0%, #2F4858 100%);
 }
 
 .content-wrapper {
@@ -16,7 +16,6 @@
   padding: 40px 30px;
   width: 100%;
   max-width: 450px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   animation: slideUp 0.5s ease-out;
 }
 
@@ -27,7 +26,7 @@
 
 .header-icon {
   font-size: 70px;
-  color: #667eea;
+  color: #33658A;
   margin-bottom: 15px;
 }
 
@@ -53,7 +52,7 @@
   border-radius: 12px;
 
   ion-icon {
-    color: #667eea;
+    color: #33658A;
     font-size: 20px;
     margin-right: 10px;
   }
@@ -64,12 +63,13 @@
     font-size: 22px;
     
     &:hover {
-      color: #667eea;
+      color: #33658A;
     }
   }
 }
 
 .custom-input {
+  color:black;
   --padding-start: 0;
   font-size: 16px;
 }
@@ -97,8 +97,10 @@
     flex: 1;
 
     ion-checkbox {
-      --border-color: #667eea;
-      --background-checked: #667eea;
+      --background: #FFF1D0;
+      --border-color: #33658A;
+      --border-width: 2px;
+      --background-checked: #33658A;
       margin-right: 10px;
     }
 
@@ -111,7 +113,7 @@
 
   .forgot-link {
     font-size: 14px;
-    color: #667eea;
+    color: #33658A;
     text-decoration: none;
     cursor: pointer;
     white-space: nowrap;
@@ -123,15 +125,15 @@
 }
 
 .login-btn {
-  --background: #667eea;
-  --background-hover: #5568d3;
+  --background: #33658A;
+  --background-hover: #2F4858;
   --border-radius: 12px;
   height: 50px;
   font-size: 16px;
   font-weight: 600;
   margin-top: 10px;
   text-transform: none;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 12px rgba(51, 101, 138, 0.4);
 
   &:disabled {
     --background: #ccc;
@@ -150,7 +152,7 @@
     margin: 0;
 
     a {
-      color: #667eea;
+      color: #33658A;
       font-weight: 600;
       text-decoration: none;
       cursor: pointer;
