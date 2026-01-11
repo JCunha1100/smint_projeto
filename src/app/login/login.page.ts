@@ -36,26 +36,8 @@ export class LoginPage implements OnInit {
   }
 
   async onLogin() {
-    if (this.loginForm.valid) {
-      const { email, password, rememberMe } = this.loginForm.value;
-      
-      // Aqui você implementaria a lógica de autenticação com backend
-      console.log('Login:', { email, password, rememberMe });
-
-      // Simulação de login bem-sucedido
-      const alert = await this.alertController.create({
-        header: 'Bem-vindo!',
-        message: 'Login realizado com sucesso.',
-        buttons: [{
-          text: 'OK',
-          handler: () => {
-            this.router.navigate(['/tabs/home']);
-          }
-        }]
-      });
-
-      await alert.present();
-    }
+    // Navega diretamente para o home sem validação (temporário)
+    this.router.navigate(['/home']);
   }
 
   async forgotPassword() {
