@@ -1,2 +1,1 @@
-"# smint_projeto" 
-"# smint_projeto" 
+Isto aqui é o projeto de Smint proposto para fazer em IONIC 
