@@ -1,0 +1,7 @@
+{
+  "name": "aplicacaoquests",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

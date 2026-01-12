@@ -1,0 +1,101 @@
+// Prisma Schema for FitTrack API
+// This schema defines the database structure for user activities and gamification
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// User model with authentication and scoring fields
+model User {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  password      String
+  name          String?
+  avatar        String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  // Gamification fields
+  totalScore    Float     @default(0)
+  level         Int       @default(1)
+  streak        Int       @default(0)
+  lastActiveAt  DateTime?
+  
+  // Relations
+  activities    Activity[]
+  favorites     Favorite[]
+  notifications Notification[]
+  
+  @@index([totalScore])
+  @@index([email])
+}
+
+// Activity model for tracking workouts and exercises
+model Activity {
+  id          String    @id @default(uuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Core activity fields
+  sportType   String    // RUNNING, CYCLING, GYM, FOOTBALL, SWIMMING, YOGA, HIIT, WALKING, TENNIS, BASKETBALL, HIKING, DANCING, BOXING, OTHER
+  duration    Int       // Duration in minutes
+  distance    Float?    // Distance in kilometers (optional)
+  date        DateTime
+  location    String?
+  intensity   String    // LOW, MODERATE, HIGH, EXTREME
+  notes       String?
+  
+  // Calculated score for this activity
+  score       Float     @default(0)
+  
+  // Timestamps
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  
+  // Relation to favorites
+  favoritedBy Favorite[]
+  
+  @@index([userId])
+  @@index([sportType])
+  @@index([date])
+  @@index([intensity])
+}
+
+// Favorite activities for quick access
+model Favorite {
+  id          String    @id @default(uuid())
+  userId      String
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  activityId  String
+  activity    Activity  @relation(fields: [activityId], references: [id], onDelete: Cascade)
+  createdAt   DateTime  @default(now())
+  
+  @@unique([userId, activityId])
+  @@index([userId])
+}
+
+// Notifications for user engagement
+model Notification {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  message   String
+  type      String   // ACHIEVEMENT, MILESTONE, SYSTEM, REMINDER
+  isRead    Boolean  @default(false)
+  data      String?  // JSON string for additional data
+  createdAt DateTime @default(now())
+  
+  @@index([userId])
+  @@index([isRead])
+}
+
+// Valid sport types for reference:
+// RUNNING, CYCLING, GYM, FOOTBALL, SWIMMING, YOGA, HIIT, WALKING, TENNIS, BASKETBALL, HIKING, DANCING, BOXING, OTHER
+
+// Valid intensity levels for reference:
+// LOW, MODERATE, HIGH, EXTREME

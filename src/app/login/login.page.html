@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/register-login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Entrar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="login-content">
+  <div class="content-wrapper">
+    <div class="form-card">
+      <div class="header-section">
+        <ion-icon name="log-in" class="header-icon"></ion-icon>
+        <h2>Bem-vindo de volta!</h2>
+        <p class="subtitle">Entre na sua conta</p>
+      </div>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <!-- Campo Email -->
+        <ion-item class="input-item" lines="none">
+          <ion-icon name="mail-outline" slot="start"></ion-icon>
+          <ion-input 
+            formControlName="email" 
+            type="email" 
+            placeholder="Email"
+            class="custom-input">
+          </ion-input>
+        </ion-item>
+        <div class="error-message" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          <span *ngIf="loginForm.get('email')?.errors?.['required']">Email é obrigatório</span>
+          <span *ngIf="loginForm.get('email')?.errors?.['email']">Email inválido</span>
+        </div>
+
+        <!-- Campo Password -->
+        <ion-item class="input-item" lines="none">
+          <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+          <ion-input 
+            formControlName="password" 
+            [type]="showPassword ? 'text' : 'password'" 
+            placeholder="Password"
+            class="custom-input">
+          </ion-input>
+          <ion-icon 
+            slot="end" 
+            [name]="showPassword ? 'eye-off-outline' : 'eye-outline'"
+            (click)="togglePassword()"
+            class="eye-icon">
+          </ion-icon>
+        </ion-item>
+        <div class="error-message" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          <span *ngIf="loginForm.get('password')?.errors?.['required']">Password é obrigatória</span>
+          <span *ngIf="loginForm.get('password')?.errors?.['minlength']">Password deve ter no mínimo 6 caracteres</span>
+        </div>
+
+        <!-- Opções -->
+        <div class="options-section">
+          <ion-item class="checkbox-item" lines="none">
+            <ion-checkbox formControlName="rememberMe" slot="start"></ion-checkbox>
+            <ion-label>Lembrar-me</ion-label>
+          </ion-item>
+          <a class="forgot-link" (click)="forgotPassword()">Esqueceu a password?</a>
+        </div>
+
+        <!-- Botão Login -->
+        <ion-button 
+          expand="block" 
+          type="submit" 
+          class="login-btn">
+          Entrar
+        </ion-button>
+      </form>
+
+      <!-- Link para Registar -->
+      <div class="register-link">
+        <p>Não tem conta? <a (click)="goToRegister()">Registe-se</a></p>
+      </div>
+    </div>
+  </div>
+</ion-content>

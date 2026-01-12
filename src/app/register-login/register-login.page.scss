@@ -1,0 +1,108 @@
+.register-login-content {
+  --background: linear-gradient(135deg, #33658A 0%, #2F4858 100%);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 40px 20px;
+}
+
+.logo-section {
+  text-align: center;
+  margin-top: 60px;
+  animation: fadeInDown 1s ease-out;
+}
+
+.app-icon {
+  font-size: 100px;
+  color: #ffffff;
+  margin-bottom: 20px;
+  animation: bounce 2s infinite;
+}
+
+.app-title {
+  font-size: 48px;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.app-subtitle {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 10px;
+  font-weight: 300;
+}
+
+.actions-section {
+  margin-top: auto;
+  margin-bottom: 40px;
+}
+
+.login-button {
+  --background: #F0C808;
+  --color: #2F4858;
+  --border-radius: 12px;
+  height: 56px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  text-transform: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  
+  ion-icon {
+    font-size: 24px;
+  }
+}
+
+.register-button {
+  --border-color: #ffffff;
+  --color: #ffffff;
+  --border-radius: 12px;
+  --border-width: 2px;
+  height: 56px;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: none;
+  
+  ion-icon {
+    font-size: 24px;
+  }
+}
+
+.footer {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.footer-text {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  font-style: italic;
+}
+
+// Animações
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}

@@ -1,0 +1,93 @@
+=============================================================
+    REGISTO DE ALTERAÇÕES - APLICAÇÃO QUESTS
+=============================================================
+
+Data: 16/12/2025
+---------------------------------
+
+ALTERAÇÕES REALIZADAS:
+
+1. Configuração do Projeto
+   - Configurado angular.json para gerar páginas em formato NgModule (standalone: false)
+   - Adicionadas configurações para componentes, diretivas e pipes
+
+2. Correções nas Páginas Existentes
+   - Adicionado standalone: false nas seguintes páginas:
+     * home.page.ts
+     * perfil.page.ts
+     * estatisticas.page.ts
+     * lista-tarefas.page.ts
+     * adicionar-tarefa.page.ts
+     * login.page.ts
+     * registar.page.ts
+     * loading.page.ts
+     * register-login.page.ts
+
+3. Routing das Tabs
+   - Removidas rotas tab1, tab2 e tab3 do tabs-routing.module.ts
+   - Atualizado redirect para /tabs/home
+
+=============================================================
+PRÓXIMAS ALTERAÇÕES SERÃO REGISTRADAS ABAIXO
+=============================================================
+
+Data: 16/12/2025 - 14:30
+---------------------------------
+ALTERAÇÃO: Implementação da Página de Loading Inicial
+---------------------------------
+
+ARQUIVOS MODIFICADOS:
+1. src/app/loading/loading.page.html
+2. src/app/loading/loading.page.ts
+3. src/app/loading/loading.page.scss
+4. src/app/app-routing.module.ts
+
+DESCRIÇÃO DETALHADA:
+
+1. Página de Loading (loading.page.html):
+   - Removido header padrão do Ionic
+   - Criado container centralizado com flex layout
+   - Adicionado ícone de troféu (trophy-outline) como logo da app
+   - Adicionado título "Quests" estilizado
+   - Implementado spinner do Ionic (tipo "crescent")
+   - Adicionado texto "Carregando..." com animação
+
+2. Lógica de Navegação (loading.page.ts):
+   - Importado Router do Angular
+   - Injetado Router no constructor
+   - Implementado setTimeout no ngOnInit para redirecionar após 3 segundos
+   - Destino do redirecionamento: página /register-login
+
+3. Estilos e Animações (loading.page.scss):
+   - Background com gradiente roxo/azul (135deg, #667eea → #764ba2)
+   - Container centralizado com flexbox
+   - Ícone do logo com tamanho 80px
+   - Título com fonte bold, 36px e espaçamento de letras
+   - Spinner customizado (50x50px, cor branca)
+   
+   ANIMAÇÕES CRIADAS:
+   a) fadeInDown: Entrada suave do logo e título (1s)
+      - Inicia com opacity 0 e translateY(-20px)
+      - Termina com opacity 1 e translateY(0)
+   
+   b) bounce: Efeito de "salto" no ícone (2s, infinito)
+      - 0% e 100%: translateY(0)
+      - 50%: translateY(-10px)
+   
+   c) pulse: Pulsação do texto "Carregando..." (1.5s, infinito)
+      - Alterna opacity entre 0.8 e 0.3
+
+4. Configuração de Rota (app-routing.module.ts):
+   - Alterada rota raiz ('') para redirecionar para 'loading'
+   - Adicionado pathMatch: 'full' para correspondência exata
+   - Mantida rota 'tabs' para navegação posterior
+   - Loading agora é a primeira página a ser exibida ao iniciar a app
+
+COMPORTAMENTO ESPERADO:
+- Ao abrir a aplicação, o usuário vê imediatamente a tela de loading
+- Animações suaves do logo e texto criam experiência visual agradável
+- Após exatamente 3 segundos, redirecionamento automático para /register-login
+- Transição fluida entre páginas
+
+=============================================================
+
